@@ -102,7 +102,7 @@ app.put('/updateRecipe/:id', verifyToken, async(req, res) => {
 app.post('/createRecipe', verifyToken, async (req, res) => {
   try {
     const { recipeName, category, cookingInstructions, ingredients } = req.body
-    const recipe = new Recipe({ recipeName, category, cookingInstructions, ingredients })
+    const recipe = new Recipe({ recipeName, category, cookingInstructions, ingredients, rating, reviews })
     await recipe.save()
     res.send(recipe)
   } catch (error) {
